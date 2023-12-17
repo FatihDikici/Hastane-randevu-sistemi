@@ -1,0 +1,52 @@
+﻿@{
+
+    ViewData["Title"] = "Profile Hoşgeldiniz";
+
+}
+
+
+<div class="row">
+    <div class="col-4 offset-4">
+
+        <h1 class="display-4 border-bottom text-center pb-2 "> @ViewData["Title"] </h1>
+
+    </div>
+</div>
+
+<div class="row">
+            <div class="col-4">
+                <div class="mb-4">
+                    <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+                </div>
+                <form method="post" asp-action="ProfileChangeFullName">
+                    <div class="form-group">
+                <label class="form-label small"><b>Ad Soyad</b></label>
+                <div class="input-group mb-3">
+                <input name="fullname" type="text" class="form-control" placeholder="Ad Soyad" value="@ViewData["FullName"]" />
+                    <button class="btn btn-secondary" type="submit"><i class=" fa-regular fa-floppy-disk me-1"></i><b>Kaydet</b></button>
+                </div>
+                    </div>
+                </form>
+        <form method="post" asp-action="ProfileChangePassword">
+            <div class="form-group">
+                <label class="form-label small"><b>Yeni Şifre</b></label>
+                <div class="input-group">
+                    <input name="Password" type="password" class="form-control" placeholder="Şifre" />
+                    <button class="btn btn-secondary" type="submit"><i class=" fa-regular fa-floppy-disk me-1"></i><b>Kaydet</b></button>
+                </div>
+                @if (ViewData["result"] != null && ViewData["result"] == "Şifre Değiştirildi")
+                {
+                    <span class="text-success small">Şifre Güncellendi.</span>
+                }
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts{
+    @if (ViewData["result"] != null && ViewData["result"] == "Şifre Değiştirildi")
+{
+    <script>
+        toastr["success"]("Şifre Değiştirilmiştir.", "Şifre Değişti!");
+    </script>
+}
+}
