@@ -1,0 +1,88 @@
+﻿@model AppointmentViewModel
+
+@{
+    ViewData["Title"] = "Randevu Al";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyC8/3eRYMRUqIc1qrL/5U6voegyoJ0PBb" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card p-4">
+                    <h1 class="display-4 mb-4">@ViewData["Title"]</h1>
+
+                    <form asp-action="AppointmentAdd" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
+
+                        <div class="form-group">
+                            <label asp-for="Date" class="form-label">Randevu Tarihi ve Saati</label>
+                            <input asp-for="Date" class="form-control" placeholder="Tarih ve Saati Giriniz" />
+                            <span asp-validation-for="Date" class="text-danger small"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Policlinic" class="form-label">Poliklinik</label>
+                            <select asp-for="Policlinic" asp-items="@ViewBag.Polyclinics" class="form-control">
+                                <option value="">Poliklinik Seçiniz</option>
+                            </select>
+                            <span asp-validation-for="Policlinic" class="text-danger small"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="HospitalName" class="form-label">Hastane Adı</label>
+                            <select asp-for="HospitalName" class="form-control">
+                                
+                                <option value="">Hastane Adı seçiniz</option>
+                                <option value="Arnavutköy Devlet Hastanesi">Arnavutköy Devlet Hastanesi</option>
+                                <option value="Avcılar Murat Kölük Devlet Hastanesi">Avcılar Murat Kölük Devlet Hastanesi</option>
+                                <option value="Beykoz Devlet Hastanesi">Beykoz Devlet Hastanesi</option>
+                                <option value="Bahçelievler Devlet Hastanesi">Bahçelievler Devlet Hastanesi</option>
+                                <option value="Beşiktaş Sait Çiftçi Devlet Hastanesi">Beşiktaş Sait Çiftçi Devlet Hastanesi</option>
+                                <option value="Esenyurt Necmi Kadıoğlu Devlet Hastanesi">Esenyurt Necmi Kadıoğlu Devlet Hastanesi</option>
+                                <option value="Fatih Sultan Mehmet Eğitim ve Araştırma Hastanesi">Fatih Sultan Mehmet Eğitim ve Araştırma Hastanesi</option>
+                                <option value="Haydarpaşa Numune Eğitim ve Araştırma Hastanesi">Haydarpaşa Numune Eğitim ve Araştırma Hastanesi</option>
+                                <option value="İstinye Devlet Hastanesi">İstinye Devlet Hastanesi</option>
+                                <option value="Kartal Koşuyolu Yüksek İhtisas Eğitim ve Araştırma Hastanesi">Kartal Koşuyolu Yüksek İhtisas Eğitim ve Araştırma Hastanesi</option>
+                                <option value="Maltepe Devlet Hastanesi">Maltepe Devlet Hastanesi</option>
+                                <option value="Metin Sabancı Baltalimanı Kemik Hastalıkları Eğitim ve Araştırma Hastanesi">Metin Sabancı Baltalimanı Kemik Hastalıkları Eğitim ve Araştırma Hastanesi</option>
+                                <option value="Kağıthane Devlet Hastanesi">Kağıthane Devlet Hastanesi</option>
+                                <option value="Sarıyer Hamidiye Eftal Eğitim ve Araştırma Hastanesi">Sarıyer Hamidiye Eftal Eğitim ve Araştırma Hastanesi</option>
+                                <option value="Sancaktepe Dr. İlhan Varank Eğitim ve Araştırma Hastanesi">Sancaktepe Dr. İlhan Varank Eğitim ve Araştırma Hastanesi</option>
+                                <option value="Silivri Devlet Hastanesi">Silivri Devlet Hastanesi</option>
+                                <option value="Sultanbeyli Devlet Hastanesi">Sultanbeyli Devlet Hastanesi</option>
+                                <option value="Şile Devlet Hastanesi">Şile Devlet Hastanesi</option>
+                                <option value="Üsküdar Devlet Hastanesi">Üsküdar Devlet Hastanesi</option>
+                            </select>
+                            <span asp-validation-for="HospitalName" class="text-danger small"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Doctor" class="form-label">Doktor</label>
+                            <select asp-for="Doctor" asp-items="@ViewBag.Doctors" class="form-control">
+                                <option value="">Doktor Seçiniz</option>
+                            </select>
+                            <span asp-validation-for="Doctor" class="text-danger small"></span>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary mt-2"><i class="fa-solid fa-right-to-bracket me-2"></i>Randevu Al</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyC8/3eRYMRUqIc1qrL/5U6voegyoJ0PBb" crossorigin="anonymous"></script>
+</body>
+</html>

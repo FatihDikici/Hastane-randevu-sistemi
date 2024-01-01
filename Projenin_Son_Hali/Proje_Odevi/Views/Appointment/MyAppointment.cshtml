@@ -1,0 +1,37 @@
+﻿@model List<AppointmentViewModel>
+
+@{
+    ViewData["Title"] = "Randevularim";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Tarih</th>
+                <th>Klinik</th>
+                <th>Hastane Adı</th>
+                <th>Doktor</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var appointment in Model)
+            {
+                <tr>
+                    <td>@appointment.Date.ToShortDateString()</td>
+                    <td>@appointment.Policlinic</td>
+                    <td>@appointment.HospitalName</td>
+                    <td>@appointment.Doctor</td>
+                  @* <td>@appointment.Doctor.FirstOrDefault(d => d.DoctorId == appointment.SecilenDoktorId)?.DoktorAdiSoyadi</td>*@
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Henüz randevu almadınız.</p>
+}

@@ -1,0 +1,51 @@
+﻿@model DoctorViewModel
+@{
+    ViewData["Title"] = "Doktor Ekle";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyC8/3eRYMRUqIc1qrL/5U6voegyoJ0PBb" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card bg-white p-4">
+                    <h1 class="display-4 mb-4">@ViewData["Title"]</h1>
+
+                    <form asp-action="DoctorAdd" method="post">
+                        <div class="form-group">
+                            <label asp-for="DoctorName"><b>Doktor Adı Soyadı:</b></label>
+                            <input asp-for="DoctorName" class="form-control" />
+                            <span asp-validation-for="DoctorName" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="DoctorBranch"><b>Doktor Branşı:</b></label>
+                            <input asp-for="DoctorBranch" class="form-control" />
+                            <span asp-validation-for="DoctorBranch" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary mt-2">
+                                <i class="fa-solid fa-square-plus me-2"></i>
+                                <b>Ekle</b>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyC8/3eRYMRUqIc1qrL/5U6voegyoJ0PBb" crossorigin="anonymous"></script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Anasayfa";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYmS8" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-GLhlTQ8i7uYeJ3e1Y3YBXMckbsv5+tsTjk2Bb+3Z4nDdhCIjM1Iaaq+lfz9ti0ab" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #495057;
+        }
+       
+    </style>
+</head>
+<body>
+
+    <div class="container-fluid mt-5">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="~/uploads/neyimvar.jpg" alt="Neyim Var" class="d-block w-100" />
+                            <div class="carousel-caption">
+                                <h2>Neyim Var Devreye Alındı</h2>
+                                <p> Yeni uygulamamız “NeyimVar?” a şikâyetlerinizi girerek en uygun olası tanıları öğrenebilir ve önerilen polikliniklere Hastane Randevu Sistemi üzerinden randevu alabilirsiniz.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="~/uploads/banner.png" alt="NeyimVar Hakkında" class="d-block w-100" />
+                            <div class="carousel-caption">
+                                <h2>NeyimVar? Hakkında</h2>
+                                <p>NeyimVar? Sistemi, vatandaşların şikayetlerine göre doğru polikliniğe yönlendirilmesini amaçlayan web ve mobil tabanlı bir uygulamadır. Sistemin sorduğu sorulara verdiğiniz cevaplar ile alınan sağlık verileriniz kullanılarak olası tanı ve poliklinik önerilerine erişmenizi sağlar. Sizi, ilgili polikliniklere HRS randevu almaya yönlendirir.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="~/uploads/neyimvar2.jpg" alt="En Çok Aranan Numara" class="d-block w-100" />
+                            <div class="carousel-caption">
+                                <h2>Sinop'ta En Çok Aranan Numara</h2>
+                                <p>Bilgi Teknolojileri ve İletişim Kurumu verilerine göre 2021 yılında olduğu gibi 2022 yılının ilk çeyreğinde de 582 Sinop'ta en çok aranan numara oldu.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js" integrity="sha384-X7P+poqFNBHA6scF5IVqHYZuFRbiE5eE2OcFgF+2JZISBI5T42R4Z4Cm4mbsaqBS" crossorigin="anonymous"></script>
+
+</body>
+</html>

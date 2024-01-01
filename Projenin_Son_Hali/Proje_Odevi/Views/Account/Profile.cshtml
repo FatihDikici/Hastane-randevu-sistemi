@@ -1,0 +1,92 @@
+﻿@{
+    ViewData["Title"] = "Profile Hoşgeldiniz";
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyC8/3eRYMRUqIc1qrL/5U6voegyoJ0PBb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha384-Vkoo8UVv4uZeR1ZR7u8u5q73aP4TNIAF5qN/K35PWoPgT/pZ9f8Z7I2FUE/mI6D" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body class="bg-light">
+
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <div class="card bg-white shadow-lg p-4">
+                    <h1 class="display-4 text-center border-bottom pb-2">@ViewData["Title"]</h1>
+
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <form method="post" asp-action="ProfileChangeImage" enctype="multipart/form-data">
+                                <div class="text-center mb-3">
+                                    <img src="~/uploads/@ViewData["ProfileImage"]" width="250" class="img-thumbnail rounded-circle" />
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label class="form-label small">Profil Resmi</label>
+                                    <input type="file" name="file" class="form-control my-2" accept=".jpg, .jpeg" />
+                                    <div class="text-secondary">
+                                        <span class="small"><i class="fa fa-info-circle me-2"></i>Sadece jpg ve jpeg dosyaları</span>
+                                    </div>
+                                    <div class="text-center mt-3">
+                                        <button class="btn btn-secondary" type="submit"><i class=" fa-regular fa-floppy-disk me-1"></i><b>Kaydet</b></button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div>
+                                <h3>Ayarlar</h3>
+                                <hr />
+                                <p class="small">Ayarlarınızı buradan güncelleyebilirsiniz.</p>
+                            </div>
+
+                            <form method="post" asp-action="ProfileChangeFullName">
+                                <div class="form-group">
+                                    <label class="form-label small"><b>Ad Soyad</b></label>
+                                    <div class="input-group mb-3">
+                                        <input name="fullname" type="text" class="form-control" placeholder="Ad Soyad" value="@ViewData["FullName"]" />
+                                        <button class="btn btn-secondary" type="submit"><i class=" fa-regular fa-floppy-disk me-1"></i><b>Kaydet</b></button>
+                                    </div>
+                                </div>
+                            </form>
+
+                            <form method="post" asp-action="ProfileChangePassword">
+                                <div class="form-group">
+                                    <label class="form-label small"><b>Yeni Şifre</b></label>
+                                    <div class="input-group">
+                                        <input name="Password" type="password" class="form-control" placeholder="Şifre" />
+                                        <button class="btn btn-secondary" type="submit"><i class=" fa-regular fa-floppy-disk me-1"></i><b>Kaydet</b></button>
+                                    </div>
+                                    @if (ViewData["result"] != null && ViewData["result"] == "Şifre Değiştirildi")
+                                    {
+                                        <span class="text-success small">Şifre Güncellendi.</span>
+                                    }
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyC8/3eRYMRUqIc1qrL/5U6voegyoJ0PBb" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js" integrity="sha384-d0m1AqV4QeSlpUrX43bXPXRsWT1LlakD6FZ5VWbxER1FuJwqfa0/bkPmTRjFXTqO" crossorigin="anonymous"></script>
+
+    <script>
+        @if (ViewData["result"] != null && ViewData["result"] == "Şifre Değiştirildi")
+        {
+            <text>
+                toastr["success"]("Şifre Değiştirilmiştir.", "Şifre Değişti!");
+            </text>
+        }
+    </script>
+</body>
+</html>
